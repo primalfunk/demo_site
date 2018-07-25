@@ -14,25 +14,19 @@ class Music extends React.Component {
   }
 
   render() {
-    const { song } = this.state
+    let { song } = this.state
+    song = song.toString()
     return (
       <Fragment>
-        <Grid columns={8}>
-          <Grid.Column>
-            <MusicWrapper>
-              <Segment style={{"backgroundColor": "#858e9b"}}>
-                <Header>I've dropped a few of my piano compositions here (selection below will autoplay):</Header>
-                  <Divider hidden />
-                  <Dropdown placeholder="Select a song:" fluid selection options={ options } onChange={ this.handleChange } />
-                  <Divider hidden/>
-                  <ReactAudioPlayer src={song} controls autoPlay="true"/>
-              </Segment>
-            </MusicWrapper>
-          </Grid.Column>
-          <Grid.Column>
-            
-          </Grid.Column>
-        </Grid>
+        <div>
+          <Segment style={{"backgroundColor": "#858e9b"}}>
+            <Header>I've dropped a few of my piano compositions here (selection below will autoplay):</Header>
+            <Divider hidden />
+            <Dropdown placeholder="Select a song:" fluid selection options={ options } onChange={ this.handleChange } />
+            <Divider hidden/>
+          </Segment>
+          <audio ref="audio" autoPlay={true} controls={true} src={song}></audio>
+        </div>
       </Fragment>
     )
   }
@@ -53,8 +47,6 @@ const options = [
   }
 ]
 
-const MusicWrapper = styled.div`
-  width: 60vw;
-`
+
 
 export default Music

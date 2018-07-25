@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   namespace :api do
     resources :weather
+    resources :comics
   end
 
-  #Do not place any routes below this one
-  get '*other', to: 'static#index'
+  # get '*other', to: 'static#index'
 end

@@ -53,7 +53,7 @@ class Display extends React.Component {
           </Grid.Row>
         </Grid>
         <Divider />
-        <Header style={{color: "gray"}}as="h1" textAlign="center">Now showing: { shown === 1 ? "Weather" : shown === 2 ? "Music" : "Under Construction" }</Header>
+        <Header style={{color: "gray"}}as="h1" textAlign="center">Now showing: { shown === 1 ? "Weather" : shown === 2 ? "Music" : "Comics" }</Header>
         <Divider />
         { shown === 1 ?
           <Weather /> :

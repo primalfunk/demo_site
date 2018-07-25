@@ -1,5 +1,3 @@
-require 'pry'
-
 class Api::WeatherController < ApplicationController
   def show
     woe = params[:id]

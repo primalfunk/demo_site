@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 import styled from 'styled-components'
-import { Button, Divider, Grid, Header, Segment } from 'semantic-ui-react'
+import { Button, Divider, Header, Segment } from 'semantic-ui-react'
 import axios from 'axios'
 
 class Weather extends React.Component {
@@ -8,8 +8,8 @@ class Weather extends React.Component {
 
   handleClick(woe) {
     axios.get(`/api/weather/${woe}`)
-      .then( res => this.setState({ weather: res.data }))
-      .catch( res => { () => console.log(res.errors) } )
+      .then( res => this.setState({ weather: res.data }) )
+      .catch( res => { console.log(res.errors)} )
     this.setState({ visible: !this.state.visible })
   }
 
@@ -20,7 +20,7 @@ class Weather extends React.Component {
         <Divider hidden />
         <Segment style={{ "backgroundColor": "#4c5563", "margin": "10px" }}>
           { visible ? 
-            <Segment raised fluid style={{ "textAlign": "center", "backgroundColor": "#858e9b", "height": "30vh" }}>
+            <Segment raised fluid="true" style={{ "textAlign": "center", "backgroundColor": "#858e9b", "height": "30vh" }}>
             <MyHeader>Using the <a style={{"color": "blue"}}href="http://www.metaweather.com">metaweather.com</a> API, get a 5-day weather forecast for one of these cities:</MyHeader>
             <ul>
               <MyLi onClick={ () => this.handleClick(2459115) }>New York</MyLi>
@@ -69,7 +69,7 @@ const MyLi = styled.li`
 `
 const BigContainer = styled.div`
   background-color: #3a414c;
-  height: 40vh;
+  height: 50vh;
 `
 
 
