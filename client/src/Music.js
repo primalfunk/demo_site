@@ -56,7 +56,7 @@ class Music extends React.Component {
           <Segment style={{"backgroundColor": "#858e9b"}}>
             <Header>I've dropped a few of my piano compositions here (selection below will autoplay):</Header>
             <Divider hidden />
-            <Dropdown placeholder="Select a song:" fluid selection options={ options } onChange={ this.handleChange } />
+            <Dropdown style={{"width": "20vw"}}placeholder="Select a song:" fluid selection options={ options } onChange={ this.handleChange } />
             <Divider hidden/>
           </Segment>
           <div style={{ "display": "flex", "justifyContent": "space-around", "alignItems": "center" }}>
