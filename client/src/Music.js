@@ -1,10 +1,8 @@
 import React, { Fragment } from 'react'
-import { Divider, Dropdown, Grid, Header, Segment } from 'semantic-ui-react'
-import ReactAudioPlayer from 'react-audio-player'
+import { Divider, Dropdown, Header, Segment } from 'semantic-ui-react'
 import song1 from './sonata2-4.mp3'
 import song2 from './sonata3-1.mp3'
 import song3 from './sonata4-3.mp3'
-import styled from '../node_modules/styled-components'
 
 class Music extends React.Component {
   state = { song: {} }
@@ -34,7 +32,6 @@ class Music extends React.Component {
       requestAnimationFrame(renderFrame)
       analyser.getByteFrequencyData(freqData)
       ctx.clearRect(0, 0, canvas.width, canvas.height)
-      console.log(freqData)
       ctx.fillStyle = '#3a414c';
       let bars = 100;
       for (var i = 0; i < bars; i++) {
@@ -83,7 +80,5 @@ const options = [
     value: song3
   }
 ]
-
-
 
 export default Music
