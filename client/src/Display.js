@@ -69,7 +69,7 @@ class Display extends React.Component {
 const FlexContainer = styled(Container)`
   background-color: black;
   width: 100vw;
-  height: 38vh;
+  height: 36vh;
   display: flex;
   justify-content: center;
   align-items: center;

@@ -63,6 +63,7 @@ const ResContainer = styled(Segment)`
   justify-items: center;
   font-size: 20px;
   color: blue;
+  background-color: black;
 `
 
 export default Comics

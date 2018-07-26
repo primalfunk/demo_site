@@ -9,8 +9,42 @@ import styled from '../node_modules/styled-components'
 class Music extends React.Component {
   state = { song: {} }
 
+  componentDidMount() {
+    this.createVisualization()
+  }
+
   handleChange = (e, data) => {
     this.setState({ song: data.value })
+  }
+
+  createVisualization() {
+    let context = new AudioContext()
+    let analyser = context.createAnalyser()
+    let canvas = this.refs.analyzerCanvas
+    let ctx = canvas.getContext('2d')
+    let audio = this.refs.audio
+    audio.crossOrigin = "anonymous"
+    let audioSrc = context.createMediaElementSource(audio)
+    audioSrc.connect(analyser)
+    audioSrc.connect(context.destination)
+    analyser.connect(context.destination)
+
+    function renderFrame() {
+      let freqData = new Uint8Array(analyser.frequencyBinCount)
+      requestAnimationFrame(renderFrame)
+      analyser.getByteFrequencyData(freqData)
+      ctx.clearRect(0, 0, canvas.width, canvas.height)
+      console.log(freqData)
+      ctx.fillStyle = '#3a414c';
+      let bars = 100;
+      for (var i = 0; i < bars; i++) {
+        let bar_x = i * 3;
+        let bar_width = 2;
+        let bar_height = -(freqData[i] / 2);
+        ctx.fillRect(bar_x, canvas.height, bar_width, bar_height)
+      }
+    }
+    renderFrame()
   }
 
   render() {
@@ -25,7 +59,10 @@ class Music extends React.Component {
             <Dropdown placeholder="Select a song:" fluid selection options={ options } onChange={ this.handleChange } />
             <Divider hidden/>
           </Segment>
-          <audio ref="audio" autoPlay={true} controls={true} src={song}></audio>
+          <div style={{ "display": "flex", "justifyContent": "space-around", "alignItems": "center" }}>
+            <audio ref="audio" autoPlay={true} controls={true} src={song}></audio>
+            <canvas style={{"border": "1px dotted white", "padding": "20px", "height": "20vh", "width": "50vh" }}ref="analyzerCanvas" id="analyzer"></canvas>
+          </div>
         </div>
       </Fragment>
     )
