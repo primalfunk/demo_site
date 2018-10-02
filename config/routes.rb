@@ -4,5 +4,5 @@ Rails.application.routes.draw do
     resources :comics
   end
 
-  # get '*other', to: 'static#index'
+root :to => 'index#index'
 end
