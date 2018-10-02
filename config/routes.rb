@@ -4,5 +4,5 @@ Rails.application.routes.draw do
     resources :comics
   end
 
-root :to => 'index#index'
+  root :to => 'index#index'
 end
