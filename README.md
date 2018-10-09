@@ -1,24 +1,9 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This React on Rails web app is an example of using some simple APIs and animations.
 
-Things you may want to cover:
+It is intended to demonstrate a basic and trainable skill level for prospective employers.
 
-* Ruby version
+Thanks for having a look!
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ....
+--Jared
